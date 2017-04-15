@@ -1,0 +1,12 @@
+body{
+    background-color: rgba(0,0,255,0.2);
+}
+
+form .btn{
+    display: block;
+    margin-top: 5px;
+}
+
+label{
+    margin-bottom: 20px;
+}
