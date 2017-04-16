@@ -8,8 +8,6 @@
         setcookie('visits', $counter, time() + 3600 * 24 * 365);
     }
 
-//function to show number of visit(couldn't do it in one function because cookie has to be set before anything is send to the browser)
-
 function showVisits(){
     if(!isset($_COOKIE['visits'])) {
         echo 'Welcome, it is your first time on our website';

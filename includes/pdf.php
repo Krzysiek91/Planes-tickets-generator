@@ -32,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $finishAirPortTimeZone = $finishAirPort['timezone'];
 
         $startAirPortDateObject = new DateTime($startTime);
-        $finishAirPortDateObject = $startAirPortDateObject->modify("+$flightTime hour");
+        $finishAirPortDateObject = (new DateTime($startTime))->modify("+$flightTime hours");
+
 
         $tzStart = new DateTimeZone($startAirPortTimeZone);
         $startAirPortDateObject->setTimezone($tzStart);
@@ -40,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $tzFinish = new DateTimeZone($finishAirPortTimeZone);
         $finishAirPortDateObject->setTimezone($tzFinish);
 
-        $startAirPortLocalTime = $startAirPortDateObject->format('d.m.Y H:i:s');
 
+        $startAirPortLocalTime = $startAirPortDateObject->format('d.m.Y H:i:s');
         $finishAirPortLocalTime = $finishAirPortDateObject->format('d.m.Y H:i:s');
 
 // passengers names are generated based on library fzaninotto/faker
@@ -49,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $randomName = $faker->name;
 
 // price and currency are converted to words with kwn/number-to-words library
-
         $numberToWords = new NumberToWords();
         $currencyTransformer = $numberToWords->getCurrencyTransformer('pl');
         $priceToWords = $currencyTransformer->toWords($flightPrice * 100, 'PLN');
@@ -94,15 +94,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          </table>
         </div>
       </body>';
-
-        echo $htmlTicket;
     } else {
         echo 'Missing or wrong data provided';
     }
 }
 // Tickete in PDF form
-
- //$mpdf = new mPDF();
- //$mpdf->WriteHTML($htmlTicket);
- //$mpdf->Output('ticket.pdf', 'D');
+ $mpdf = new mPDF();
+ $mpdf->WriteHTML($htmlTicket);
+ $mpdf->Output('ticket.pdf', 'D');
 

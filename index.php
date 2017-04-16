@@ -14,6 +14,7 @@ require_once('includes/airports.php');
         <link href='bootstrap/css/bootstrap.css' rel='stylesheet'>
         <link href='css/style.css' rel='stylesheet'>
     </head>
+
     <body>
     <div class="well text-center">
             <?php showVisits() ?>

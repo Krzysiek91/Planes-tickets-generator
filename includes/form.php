@@ -24,11 +24,11 @@
         <input type='datetime-local' name='startTime' class='form-control'/>
     </label>
 
-    <label>Flight length:
+    <label>Flight length (hours):
         <input type='number' min='0' step='1' name='flightTime' class='form-control'/>
     </label>
 
-    <label>Flight price:
+    <label>Flight price (zl):
         <input type='number' min='0' step='0.01' name='flightPrice' class='form-control'/>
     </label>
 
