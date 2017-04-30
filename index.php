@@ -4,6 +4,7 @@ require_once('includes/airports.php');
 ?>
 
 <!doctype html>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -23,6 +24,7 @@ require_once('includes/airports.php');
     <div class="container well col-md-4 col-md-offset-4">
        <?php require_once('includes/form.php'); ?>
     </div>
+
        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
        <script src='bootstrap/js/bootstrap.js'></script>
     </body>

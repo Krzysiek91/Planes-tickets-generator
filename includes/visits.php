@@ -1,8 +1,9 @@
 <?php
+
 //Count number of visits, and save result to cookie
     if (!isset($_COOKIE['visits'])) {
         setcookie('visits', 1, time() + 3600 * 24 * 365);
-    } else {
+    }else {
         $counter = $_COOKIE['visits'];
         $counter++;
         setcookie('visits', $counter, time() + 3600 * 24 * 365);
